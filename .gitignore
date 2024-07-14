@@ -1,0 +1,13 @@
+# Godot 4+ specific ignores
+.godot/
+
+# Godot-specific ignores
+.import/
+export.cfg
+
+# Imported translations (automatically generated from CSV files)
+*.translation.godot/
+
+# IDE and OS specific
+.idea/
+.DS_Store
