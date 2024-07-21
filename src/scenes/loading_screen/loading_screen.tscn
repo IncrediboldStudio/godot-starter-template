@@ -97,7 +97,7 @@ _data = {
 "throbber": SubResource("Animation_6mags")
 }
 
-[node name="DefaultLoadingScreen" type="CanvasLayer"]
+[node name="LoadingScreen" type="CanvasLayer"]
 script = ExtResource("1_l6wrb")
 
 [node name="Container" type="Control" parent="."]

@@ -5,6 +5,8 @@ extends Node
 var scenes: Dictionary = {}
 var loading_screen: Resource = preload ("res://src/scenes/loading_screen/loading_screen.tscn")
 
+var last_loaded_scene = null
+
 enum ThreadStatus {
 	INVALID_RESOURCE = 0, # THREAD_LOAD_INVALID_RESOURCE
 	IN_PROGRESS = 1, # THREAD_LOAD_IN_PROGRESS
@@ -30,22 +32,28 @@ func set_configuration(config: Dictionary) -> void:
 ## Loads a scene asynchronously and replaces the current scene with it.
 ##
 ## Arguments:
-## - current_scene: The current scene to be replaced.
 ## - next_scene: The path to the scene to be loaded.
+## - current_scene: The current scene to be replaced.
 ##
 ## Returns: None
-func load_scene(current_scene: Node, next_scene: String) -> void:
+func load_scene(next_scene: String, current_scene: Node = null) -> void:
 	var loading_screen_instance: Node = initialize_loading_screen()
 	var path: String = find_scene_path(next_scene)
 
-	# Load scene
+	# Start loading scene
 	if ResourceLoader.load_threaded_request(path) != OK:
 		printerr("Scene %s does not exist." % path)
 		return
 
 	# Wait for loading screen to be ready
 	await loading_screen_instance.safe_to_load
-	current_scene.queue_free()
+
+	# Unload current scene or last loaded scene if not specified
+	if current_scene == null:
+		current_scene = last_loaded_scene
+
+	if is_instance_valid(current_scene):
+		current_scene.queue_free()
 
 	while true:
 		var load_progress = []
@@ -56,11 +64,13 @@ func load_scene(current_scene: Node, next_scene: String) -> void:
 				printerr("Can not load the resource.")
 				return
 			ThreadStatus.IN_PROGRESS:
-				printerr("Scene loaded at %s %" % load_progress[0])
+				loading_screen_instance.update_loading_progress.emit(load_progress[0])
+				printerr("Scene loaded at %s%%" % load_progress[0])
 			ThreadStatus.FAILED:
 				printerr("Loading failed.")
 				return
 			ThreadStatus.LOADED:
+				loading_screen_instance.update_loading_progress.emit(load_progress[0])
 				load_next_scene(path, loading_screen_instance)
 				return
 
@@ -89,6 +99,19 @@ func find_scene_path(next_scene: String) -> String:
 		return ""
 
 	return path
+	
+## Finds the path to the scene file.
+##
+## Arguments:
+## - next_scene: The path to the scene to be loaded.
+##
+## Returns: The path to the scene file.
+func get_last_string(last_scene: Node) -> Node:
+	# Find path to the scene file
+	if last_scene:
+		return last_scene
+	
+	return last_loaded_scene
 
 ## Loads the next scene.
 ##
@@ -101,3 +124,4 @@ func load_next_scene(path: String, loading_screen_instance: Node) -> void:
 	var next_scene_instance = ResourceLoader.load_threaded_get(path).instantiate()
 	get_tree().get_root().call_deferred("add_child", next_scene_instance)
 	loading_screen_instance.loading_finished.emit()
+	last_loaded_scene = next_scene_instance
