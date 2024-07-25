@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjdgwg23lm1d4"]
+
+[ext_resource type="PackedScene" uid="uid://cy6kmby6mupvv" path="res://src/ui/components/action_remap_button/action_remap_button.tscn" id="1_37tni"]
+
+[node name="InputRemapMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Instructions" type="Label" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+offset_top = 24.0
+offset_bottom = 55.0
+text = "Click on a button to reassign its action key."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RemapButtonGroup" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -144.0
+offset_right = 160.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ActionsList" type="VBoxContainer" parent="RemapButtonGroup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -140.0
+offset_right = 160.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ActionRemapRow" type="HBoxContainer" parent="RemapButtonGroup/ActionsList"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionName" type="Label" parent="RemapButtonGroup/ActionsList/ActionRemapRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Test Input"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow" instance=ExtResource("1_37tni")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+action = "test_input"
