@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://bwrehy37ax0cp"]
+[gd_scene format=3 uid="uid://ys470qfo6eca"]
 
-[node name="ThemeVariantsPreview" type="Panel"]
+[node name="ThemeVariantsPreview" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -8,3 +8,87 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VFlowContainer" type="VFlowContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Typography" type="PanelContainer" parent="MarginContainer/VFlowContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"PanelContainerSurface"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VFlowContainer/Typography"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/Typography/MarginContainer"]
+layout_mode = 2
+
+[node name="ContainerTitle" type="Label" parent="MarginContainer/VFlowContainer/Typography/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Typography"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/Typography/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Display" type="Label" parent="MarginContainer/VFlowContainer/Typography/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TypographyDisplay"
+text = "Display"
+
+[node name="Headline" type="Label" parent="MarginContainer/VFlowContainer/Typography/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TypographyHeadline"
+text = "Headline"
+
+[node name="Title" type="Label" parent="MarginContainer/VFlowContainer/Typography/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TypographyTitle"
+text = "Title"
+
+[node name="Body" type="Label" parent="MarginContainer/VFlowContainer/Typography/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TypographyBody"
+text = "Body"
+
+[node name="Label" type="Label" parent="MarginContainer/VFlowContainer/Typography/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TypographyLabel"
+text = "Label
+"
+
+[node name="Buttons" type="PanelContainer" parent="MarginContainer/VFlowContainer"]
+layout_mode = 2
+theme_type_variation = &"PanelContainerSurface"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VFlowContainer/Buttons"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer"]
+layout_mode = 2
+
+[node name="ContainerTitle" type="Label" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Buttons"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonPrimary" type="Button" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ButtonPrimary"
+text = "ButtonPrimary"
+
+[node name="ButtonSecondary" type="Button" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ButtonSecondary"
+text = "ButtonSecondary"
+
+[node name="ButtonAccent" type="Button" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ButtonAccent"
+text = "ButtonAccent"
