@@ -9,5 +9,5 @@ func _init(_theme_editor:ThemeEditor):
 
 
 func on_button_pressed():
-  theme_editor.apply_styles()
+  theme_editor.set_styles()
   ResourceSaver.save(theme_editor)
