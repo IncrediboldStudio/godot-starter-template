@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://bo4h44t7exrk8"]
+
+[ext_resource type="Script" path="res://src/ui/menus/menu_container.gd" id="1_3mc1x"]
+[ext_resource type="PackedScene" uid="uid://hrsyegb3v66m" path="res://src/ui/menus/main_menu.tscn" id="1_lvpmm"]
+[ext_resource type="PackedScene" uid="uid://dolt561w34mhe" path="res://src/ui/menus/title_screen.tscn" id="2_2ghdt"]
+[ext_resource type="PackedScene" uid="uid://bjibxahqbil25" path="res://src/ui/menus/menu1.tscn" id="4_gfng6"]
+[ext_resource type="PackedScene" uid="uid://fpyk6pd56dfc" path="res://src/ui/menus/menu2.tscn" id="5_3c2m5"]
+[ext_resource type="PackedScene" uid="uid://cmw08l3deu116" path="res://src/ui/menus/menu3.tscn" id="6_ex538"]
+
+[node name="start_menu" type="CanvasLayer"]
+script = ExtResource("1_3mc1x")
+
+[node name="main_menu" parent="." instance=ExtResource("1_lvpmm")]
+visible = false
+
+[node name="title_screen" parent="." instance=ExtResource("2_2ghdt")]
+visible = false
+
+[node name="menu1" parent="." instance=ExtResource("4_gfng6")]
+
+[node name="menu2" parent="." instance=ExtResource("5_3c2m5")]
+visible = false
+
+[node name="menu3" parent="." instance=ExtResource("6_ex538")]
+visible = false
