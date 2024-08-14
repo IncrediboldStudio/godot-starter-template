@@ -23,7 +23,11 @@ KeyPersistence="*res://src/system/key_persistence.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/panku_console/plugin.cfg")
+enabled=PackedStringArray("res://addons/panku_console/plugin.cfg", "res://addons/theme_editor/plugin.cfg")
+
+[gui]
+
+theme/custom="res://src/ui/th_default.tres"
 
 [input]
 
