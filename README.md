@@ -18,6 +18,10 @@ git clone https://github.com/IncrediboldStudio/godot-starter-template.git
 
 This template project comes with these features out of the box:
 
+## Theme Editor
+The Theme Editor plugin allows you to generate theme variations in the editor from the provided colors and fonts.
+Uses the [theme_editor.gd](addons\theme_editor\theme_editor.gd) as the new Theme ressource.
+
 ## CI/CD
 
 This templates allows you to build your project for both Windows desktop and Web.  

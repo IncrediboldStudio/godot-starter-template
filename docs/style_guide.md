@@ -62,6 +62,7 @@ Most things are prefixed with prefixes being generally an acronym of the asset t
 | Sprite Atlas | spra_  |                                     |
 | Tile Map     | tm_    |                                     |
 | Tile Set     | ts_    |                                     |
+| Theme        | th_    | Also for ThemeEditor resources      |
 
 ## 3. Direcory Structure
 
