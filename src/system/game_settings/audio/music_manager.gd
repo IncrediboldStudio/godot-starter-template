@@ -5,19 +5,20 @@ enum MusicName {
 }
 
 var MUSIC_FILES = {
-	MusicName.EXAMPLE: preload ("res://src/audio/gamblecore.mp3"),
+	#MusicName.EXAMPLE: preload ("res://src/audio/example.mp3"),
 }
 
+var start_music = MusicName.EXAMPLE
 var music_player
 
 func _ready():
 	music_player = AudioStreamPlayer.new()
-	var stream = MUSIC_FILES.get(MusicName.EXAMPLE)
+	var stream = MUSIC_FILES.get(start_music)
 	music_player.set_stream(stream)
 	music_player.bus = &"Music"
 	music_player.connect("finished", Callable(self,"on_music_finished"))
 	add_child(music_player)
-	#music_player.play()
+	music_player.play()
 
 
 func on_music_finished():

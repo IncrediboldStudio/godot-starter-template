@@ -5,15 +5,14 @@ enum SfxName {
 }
 
 var AUDIOFILES = {
-	SfxName.EXAMPLE: preload ("res://src/audio/gamblecore.mp3"),
+	#SfxName.EXAMPLE: preload ("res://src/audio/example.mp3"),
 }
 
 
 var reference_player = AudioStreamPlayer.new()
 
 func _ready():
-	reference_player.bus = &"SFX"
-	play_audio(SfxName.EXAMPLE)
+	reference_player.bus = &"Sfx"
 
 
 func on_player_finished(player):
