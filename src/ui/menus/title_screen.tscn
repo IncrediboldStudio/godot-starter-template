@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dolt561w34mhe"]
+[gd_scene load_steps=3 format=3 uid="uid://dolt561w34mhe"]
 
 [ext_resource type="Script" path="res://src/ui/menus/menu.gd" id="1_qqegu"]
+[ext_resource type="Script" path="res://src/ui/buttons/any_key_button.gd" id="2_ayu3u"]
 
 [node name="title_screen" type="Control"]
 layout_mode = 3
@@ -48,5 +49,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_ayu3u")
 
 [connection signal="pressed" from="TextureButton" to="." method="change_menu" binds= ["main_menu"]]
