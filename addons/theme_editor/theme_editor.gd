@@ -97,15 +97,12 @@ func set_variant(variant_name: String, base_type: String, bg_color: Color, color
   set_type_variation(variant_name, base_type)
 
   if !get_stylebox_list(base_type).is_empty():
-    print("stylebox")
     set_stylebox_style(variant_name, bg_color)
 
   if !get_color_list(base_type).is_empty():
-    print("color")
     set_color_style(variant_name, color)
 
-  if !get_icon_list(base_type).is_empty(): 
-    print("icon")
+  if !get_icon_list(base_type).is_empty():
     set_icon_style(variant_name, bg_color)
 
 func set_color_style(theme_type: String, color: Color):
