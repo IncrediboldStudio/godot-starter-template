@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dw4i8ngoxbqts"]
+[gd_scene load_steps=10 format=3 uid="uid://bt04ee18kvvtq"]
 
 [ext_resource type="Script" path="res://src/scenes/loading_screen/loading_screen.gd" id="1_l6wrb"]
 
@@ -124,14 +124,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -174.0
-offset_right = 150.0
-offset_bottom = -83.0
+offset_left = -113.5
+offset_top = -143.52
+offset_right = 113.5
+offset_bottom = -63.5199
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 64
 text = "Loading..."
+horizontal_alignment = 1
 
 [node name="Throbber" type="TextureRect" parent="Container"]
 layout_mode = 1

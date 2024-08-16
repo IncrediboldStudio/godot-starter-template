@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bo4h44t7exrk8"]
+[gd_scene load_steps=7 format=3 uid="uid://bjjxcfs8f1vmk"]
 
 [ext_resource type="Script" path="res://src/ui/menus/menu_container.gd" id="1_3mc1x"]
 [ext_resource type="Script" path="res://src/system/init_scene.gd" id="1_bwpuq"]
-[ext_resource type="PackedScene" uid="uid://hrsyegb3v66m" path="res://src/ui/menus/main_menu.tscn" id="1_lvpmm"]
-[ext_resource type="PackedScene" uid="uid://dolt561w34mhe" path="res://src/ui/menus/title_screen.tscn" id="2_2ghdt"]
-[ext_resource type="PackedScene" uid="uid://8oi7kfytkhua" path="res://src/ui/menus/credits_menu.tscn" id="4_ix6cy"]
-[ext_resource type="PackedScene" uid="uid://djfhbjm03xr6t" path="res://src/ui/menus/setting_menu.tscn" id="5_fs13x"]
+[ext_resource type="PackedScene" uid="uid://cmm8mituvru1f" path="res://src/ui/menus/main_menu.tscn" id="1_lvpmm"]
+[ext_resource type="PackedScene" uid="uid://c2ix1hajlrdqq" path="res://src/ui/menus/title_screen.tscn" id="2_2ghdt"]
+[ext_resource type="PackedScene" uid="uid://dloqjps84npmc" path="res://src/ui/menus/credits_menu.tscn" id="4_ix6cy"]
+[ext_resource type="PackedScene" uid="uid://fq81v6b2v4eq" path="res://src/ui/menus/setting_menu.tscn" id="5_fs13x"]
 
 [node name="start_menu" type="Control"]
 layout_mode = 3
