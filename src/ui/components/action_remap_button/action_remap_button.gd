@@ -12,7 +12,6 @@ func _toggled(is_button_pressed: bool) -> void:
     set_process_unhandled_key_input(is_button_pressed)
     if is_button_pressed:
         text = "<press a key>"
-        modulate = Color.YELLOW
         release_focus()
     else:
         display_current_key()

@@ -15,6 +15,10 @@ run/main_scene="res://src/scenes/scn_start_menu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://src/audio/default_bus_layout.tres"
+
 [autoload]
 
 SceneLoader="*res://src/system/scene_loader.gd"
@@ -23,16 +27,12 @@ SfxManager="*res://src/system/game_settings/audio/sfx_manager.gd"
 MusicManager="*res://src/system/game_settings/audio/music_manager.gd"
 KeyPersistence="*res://src/system/key_persistence.gd"
 
-[debug]
-
-gdscript/warnings/unused_variable=2
-
 [display]
 
 window/size/viewport_width=1080
 window/size/viewport_height=720
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
 
 [editor_plugins]
 
