@@ -1,0 +1,578 @@
+[gd_scene load_steps=2 format=3 uid="uid://ys470qfo6eca"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_tlea1"]
+
+[node name="ThemeVariantsPreview" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"PanelContainerBackground"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VFlowContainer" type="VFlowContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Typography" type="PanelContainer" parent="MarginContainer/VFlowContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"PanelContainerSurface"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VFlowContainer/Typography"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/Typography/MarginContainer"]
+layout_mode = 2
+
+[node name="ContainerTitle" type="Label" parent="MarginContainer/VFlowContainer/Typography/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TypographyTitle"
+text = "Typography"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/Typography/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Display" type="Label" parent="MarginContainer/VFlowContainer/Typography/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TypographyDisplay"
+text = "Display"
+
+[node name="Headline" type="Label" parent="MarginContainer/VFlowContainer/Typography/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TypographyHeadline"
+text = "Headline"
+
+[node name="Title" type="Label" parent="MarginContainer/VFlowContainer/Typography/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TypographyTitle"
+text = "Title"
+
+[node name="Body" type="Label" parent="MarginContainer/VFlowContainer/Typography/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TypographyBody"
+text = "Body"
+
+[node name="Label" type="Label" parent="MarginContainer/VFlowContainer/Typography/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TypographyLabel"
+text = "Label
+"
+
+[node name="Buttons" type="PanelContainer" parent="MarginContainer/VFlowContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_type_variation = &"PanelContainerBackground"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VFlowContainer/Buttons"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer"]
+layout_mode = 2
+
+[node name="ContainerTitle" type="Label" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TypographyTitle"
+text = "Buttons"
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TabContainerSurface"
+clip_tabs = false
+use_hidden_tabs_for_min_size = true
+
+[node name="Button" type="MarginContainer" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/Button"]
+layout_mode = 2
+
+[node name="ContainerTitle" type="Label" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/Button/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TypographyTitle"
+text = "Buttons"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/Button/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonPrimary" type="Button" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/Button/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ButtonPrimary"
+text = "Primary"
+
+[node name="ButtonSecondary" type="Button" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/Button/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ButtonSecondary"
+text = "Secondary"
+
+[node name="ButtonAccent" type="Button" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/Button/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ButtonAccent"
+text = "Accent"
+
+[node name="ButtonPrimaryDisabled" type="Button" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/Button/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ButtonPrimary"
+disabled = true
+text = "Primary Disabled"
+
+[node name="ButtonSecondaryDisabled" type="Button" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/Button/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ButtonSecondary"
+disabled = true
+text = "Secondary Disabled"
+
+[node name="ButtonAccentDisabled" type="Button" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/Button/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ButtonAccent"
+disabled = true
+text = "Accent Disabled"
+
+[node name="CheckButton" type="MarginContainer" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/CheckButton"]
+layout_mode = 2
+
+[node name="ContainerTitle" type="Label" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/CheckButton/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TypographyTitle"
+text = "Check Buttons"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/CheckButton/VBoxContainer"]
+layout_mode = 2
+
+[node name="CheckButtonPrimary" type="CheckButton" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/CheckButton/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"CheckButtonPrimary"
+text = "Primary"
+
+[node name="CheckButtonSecondary" type="CheckButton" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/CheckButton/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"CheckButtonSecondary"
+text = "Secondary"
+
+[node name="CheckButtonAccent" type="CheckButton" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/CheckButton/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"CheckButtonAccent"
+text = "Accent"
+
+[node name="CheckButtonPrimaryDisabled" type="CheckButton" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/CheckButton/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"CheckButtonPrimary"
+disabled = true
+text = "Primary Disabled"
+
+[node name="CheckButtonSecondaryDisabled" type="CheckButton" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/CheckButton/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"CheckButtonSecondary"
+disabled = true
+text = "Secondary Disabled"
+
+[node name="CheckButtonAccentDisabled" type="CheckButton" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/CheckButton/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"CheckButtonAccent"
+disabled = true
+text = "Accent Disabled"
+
+[node name="LinkButton" type="MarginContainer" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/LinkButton"]
+layout_mode = 2
+
+[node name="ContainerTitle" type="Label" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/LinkButton/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TypographyTitle"
+text = "Link Buttons"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/LinkButton/VBoxContainer"]
+layout_mode = 2
+
+[node name="LinkButtonPrimary" type="LinkButton" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/LinkButton/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"LinkButtonPrimary"
+text = "Primary"
+
+[node name="LinkButtonSecondary" type="LinkButton" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/LinkButton/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"LinkButtonSecondary"
+text = "Secondary"
+
+[node name="LinkButtonAccent" type="LinkButton" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/LinkButton/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"LinkButtonAccent"
+text = "Accent"
+
+[node name="LinkButtonPrimaryDisabled" type="LinkButton" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/LinkButton/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"LinkButtonPrimary"
+disabled = true
+text = "Primary Disabled"
+
+[node name="LinkButtonSecondaryDisabled" type="LinkButton" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/LinkButton/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"LinkButtonSecondary"
+disabled = true
+text = "Secondary Disabled"
+
+[node name="LinkButtonAccentDisabled" type="LinkButton" parent="MarginContainer/VFlowContainer/Buttons/MarginContainer/VBoxContainer/TabContainer/LinkButton/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"LinkButtonAccent"
+disabled = true
+text = "Accent Disabled"
+
+[node name="InputControls" type="PanelContainer" parent="MarginContainer/VFlowContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_type_variation = &"PanelContainerBackground"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VFlowContainer/InputControls"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer"]
+layout_mode = 2
+
+[node name="ContainerTitle" type="Label" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TypographyTitle"
+text = "Input Controls
+"
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TabContainerSurface"
+clip_tabs = false
+use_hidden_tabs_for_min_size = true
+
+[node name="CheckBox" type="MarginContainer" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/CheckBox"]
+layout_mode = 2
+
+[node name="ContainerTitle" type="Label" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/CheckBox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TypographyTitle"
+text = "CheckBox"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/CheckBox/VBoxContainer"]
+layout_mode = 2
+
+[node name="CheckBoxPrimary" type="CheckBox" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/CheckBox/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"CheckBoxPrimary"
+text = "Primary"
+
+[node name="CheckBoxSecondary" type="CheckBox" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/CheckBox/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"CheckBoxSecondary"
+text = "Secondary"
+
+[node name="CheckBoxAccent" type="CheckBox" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/CheckBox/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"CheckBoxAccent"
+text = "Accent"
+
+[node name="CheckBoxPrimaryDisabled" type="CheckBox" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/CheckBox/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"CheckBoxPrimary"
+disabled = true
+text = "Primary Disabled"
+
+[node name="CheckBoxSecondaryDisabled" type="CheckBox" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/CheckBox/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"CheckBoxSecondary"
+disabled = true
+text = "Secondary Disabled"
+
+[node name="CheckBoxAccentDisabled" type="CheckBox" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/CheckBox/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"CheckBoxAccent"
+disabled = true
+text = "Accent Disabled"
+
+[node name="Radio" type="MarginContainer" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/Radio"]
+layout_mode = 2
+
+[node name="ContainerTitle" type="Label" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/Radio/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TypographyTitle"
+text = "Radio Buttons"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/Radio/VBoxContainer"]
+layout_mode = 2
+
+[node name="RadioPrimary" type="CheckBox" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/Radio/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"CheckBoxPrimary"
+button_group = SubResource("ButtonGroup_tlea1")
+text = "Primary"
+
+[node name="RadioSecondary" type="CheckBox" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/Radio/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"CheckBoxSecondary"
+button_group = SubResource("ButtonGroup_tlea1")
+text = "Secondary"
+
+[node name="RadioAccent" type="CheckBox" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/Radio/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"CheckBoxAccent"
+button_group = SubResource("ButtonGroup_tlea1")
+text = "Accent"
+
+[node name="RadioPrimaryDisabled" type="CheckBox" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/Radio/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"CheckBoxPrimary"
+disabled = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_tlea1")
+text = "Primary Disabled"
+
+[node name="RadioSecondaryDisabled" type="CheckBox" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/Radio/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"CheckBoxSecondary"
+disabled = true
+button_group = SubResource("ButtonGroup_tlea1")
+text = "Secondary Disabled"
+
+[node name="RadioAccentDisabled" type="CheckBox" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/Radio/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"CheckBoxAccent"
+disabled = true
+button_group = SubResource("ButtonGroup_tlea1")
+text = "Accent Disabled"
+
+[node name="LineEdit" type="MarginContainer" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/LineEdit"]
+layout_mode = 2
+
+[node name="ContainerTitle" type="Label" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/LineEdit/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TypographyTitle"
+text = "Line Edit"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/LineEdit/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineEditPrimary" type="LineEdit" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/LineEdit/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"LineEditPrimary"
+placeholder_text = "Primary"
+clear_button_enabled = true
+
+[node name="LineEditSecondary" type="LineEdit" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/LineEdit/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"LineEditSecondary"
+placeholder_text = "Secondary"
+clear_button_enabled = true
+
+[node name="LineEditAccent" type="LineEdit" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/LineEdit/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"LineEditAccent"
+placeholder_text = "Accent"
+clear_button_enabled = true
+
+[node name="LineEditPrimaryDisabled" type="LineEdit" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/LineEdit/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"LineEditPrimary"
+placeholder_text = "Primary Disabled"
+editable = false
+clear_button_enabled = true
+
+[node name="LineEditSecondaryDisabled" type="LineEdit" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/LineEdit/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"LineEditSecondary"
+placeholder_text = "Secondary Disabled"
+editable = false
+clear_button_enabled = true
+
+[node name="LineEditAccentDisabled" type="LineEdit" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/LineEdit/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"LineEditAccent"
+placeholder_text = "Accent Disabled"
+editable = false
+clear_button_enabled = true
+
+[node name="Slider" type="MarginContainer" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/Slider"]
+layout_mode = 2
+
+[node name="ContainerTitle" type="Label" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/Slider/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TypographyTitle"
+text = "Sliders
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/Slider/VBoxContainer"]
+layout_mode = 2
+
+[node name="SliderPrimary" type="HSlider" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/Slider/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HSliderPrimary"
+value = 50.0
+
+[node name="SliderSecondary" type="HSlider" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/Slider/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HSliderSecondary"
+value = 50.0
+
+[node name="SliderAccent" type="HSlider" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/Slider/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HSliderAccent"
+value = 50.0
+
+[node name="SliderPrimaryDisabled" type="HSlider" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/Slider/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HSliderPrimary"
+value = 50.0
+editable = false
+scrollable = false
+
+[node name="SliderSecondaryDisabled" type="HSlider" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/Slider/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HSliderSecondary"
+value = 50.0
+editable = false
+scrollable = false
+
+[node name="SliderAccentDisabled" type="HSlider" parent="MarginContainer/VFlowContainer/InputControls/MarginContainer/VBoxContainer/TabContainer/Slider/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HSliderAccent"
+value = 50.0
+editable = false
+scrollable = false
+
+[node name="ProgressBar" type="PanelContainer" parent="MarginContainer/VFlowContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_type_variation = &"PanelContainerSurface"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VFlowContainer/ProgressBar"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/ProgressBar/MarginContainer"]
+layout_mode = 2
+
+[node name="ContainerTitle" type="Label" parent="MarginContainer/VFlowContainer/ProgressBar/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TypographyTitle"
+text = "Progress Bar
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/ProgressBar/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ProgressBarPrimary" type="ProgressBar" parent="MarginContainer/VFlowContainer/ProgressBar/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ProgressBarPrimary"
+value = 50.0
+
+[node name="ProgressBarSecondary" type="ProgressBar" parent="MarginContainer/VFlowContainer/ProgressBar/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ProgressBarSecondary"
+value = 50.0
+
+[node name="ProgressBarAccent" type="ProgressBar" parent="MarginContainer/VFlowContainer/ProgressBar/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ProgressBarAccent"
+value = 50.0
+
+[node name="TabBar" type="PanelContainer" parent="MarginContainer/VFlowContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_type_variation = &"PanelContainerSurface"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VFlowContainer/TabBar"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/TabBar/MarginContainer"]
+layout_mode = 2
+
+[node name="ContainerTitle" type="Label" parent="MarginContainer/VFlowContainer/TabBar/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TypographyTitle"
+text = "Tab Bar
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VFlowContainer/TabBar/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TabBarBackground" type="TabBar" parent="MarginContainer/VFlowContainer/TabBar/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TabBarBackground"
+clip_tabs = false
+tab_count = 3
+tab_0/title = "Tab Bar Background"
+tab_1/title = "Tab 2"
+tab_2/title = "Tab Disabled"
+tab_2/disabled = true
+
+[node name="TabBarSurface" type="TabBar" parent="MarginContainer/VFlowContainer/TabBar/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TabBarSurface"
+clip_tabs = false
+tab_count = 3
+tab_0/title = "Tab Bar Surface"
+tab_1/title = "Tab 2"
+tab_2/title = "Tab Disabled"
+tab_2/disabled = true
+
+[node name="TabBarPrimary" type="TabBar" parent="MarginContainer/VFlowContainer/TabBar/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TabBarPrimary"
+clip_tabs = false
+tab_count = 3
+tab_0/title = "Tab Bar Primary"
+tab_1/title = "Tab 2"
+tab_2/title = "Tab Disabled"
+tab_2/disabled = true
+
+[node name="TabBarSecondary" type="TabBar" parent="MarginContainer/VFlowContainer/TabBar/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TabBarSecondary"
+clip_tabs = false
+tab_count = 3
+tab_0/title = "Tab Bar Secondary"
+tab_1/title = "Tab 2"
+tab_2/title = "Tab Disabled"
+tab_2/disabled = true
+
+[node name="TabBarAccent" type="TabBar" parent="MarginContainer/VFlowContainer/TabBar/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TabBarAccent"
+clip_tabs = false
+tab_count = 3
+tab_0/title = "Tab Bar Accent"
+tab_1/title = "Tab 2"
+tab_2/title = "Tab Disabled"
+tab_2/disabled = true

@@ -12,3 +12,6 @@ export.cfg
 .idea/
 .DS_Store
 .vscode
+
+# Project-specific ignores
+src\ui\icons

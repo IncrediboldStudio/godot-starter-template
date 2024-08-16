@@ -19,7 +19,28 @@ config/icon="res://icon.svg"
 
 SceneLoader="*res://src/system/scene_loader.gd"
 Panku="*res://addons/panku_console/console.tscn"
+KeyPersistence="*res://src/system/key_persistence.gd"
+
+[debug]
+
+gdscript/warnings/unused_variable=2
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/panku_console/plugin.cfg")
+enabled=PackedStringArray("res://addons/panku_console/plugin.cfg", "res://addons/theme_editor/plugin.cfg")
+
+[gui]
+
+theme/custom="res://src/ui/th_default.tres"
+
+[input]
+
+test_input={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":47,"physical_keycode":0,"key_label":0,"unicode":47,"echo":false,"script":null)
+]
+}
+
+[panku]
+
+disable_on_release=true

@@ -3,7 +3,7 @@
 extends Node
 
 var scenes: Dictionary = {}
-var loading_screen: Resource = preload ("res://src/scenes/loading_screen/loading_screen.tscn")
+var loading_screen: Resource = preload ("res://src/scenes/loading_screen/scn_loading_screen.tscn")
 
 var last_loaded_scene = null
 
