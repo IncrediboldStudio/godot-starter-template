@@ -24,12 +24,12 @@ var next_player2d_id = 0
 var player2d_pool = []
 
 func _ready():
-       var player = AudioStreamPlayer.new()
-       player.bus = &"Sfx"
-       var player2d = AudioStreamPlayer2D.new()
-       player2d.bus = &"Sfx"
+    var player = AudioStreamPlayer.new()
+    player.bus = &"Sfx"
+    var player2d = AudioStreamPlayer2D.new()
+    player2d.bus = &"Sfx"
 
-       for i in MAX_SFX:
+    for i in MAX_SFX:
         var new_player = player.duplicate()
         player_pool.append(new_player)
         add_child(new_player)
