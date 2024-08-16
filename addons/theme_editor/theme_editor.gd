@@ -7,48 +7,48 @@ extends Theme
 @export var print_debug: bool = true
 
 @export var variants: Dictionary = {
-  "Button":  {
-    "variant_name": ["Primary","Secondary","Accent"],
+  "Button": {
+    "variant_name": ["Primary", "Secondary", "Accent"],
     "colored_text": true
     },
-  "CheckBox":  {
-    "variant_name": ["Primary","Secondary","Accent"],
+  "CheckBox": {
+    "variant_name": ["Primary", "Secondary", "Accent"],
     "colored_text": false
     },
-  "CheckButton":  {
-    "variant_name": ["Primary","Secondary","Accent"],
+  "CheckButton": {
+    "variant_name": ["Primary", "Secondary", "Accent"],
     "colored_text": false
     },
-  "HSlider":  {
-    "variant_name": ["Primary","Secondary","Accent"],
+  "HSlider": {
+    "variant_name": ["Primary", "Secondary", "Accent"],
     "colored_text": true
     },
-  "LineEdit":  {
-    "variant_name": ["Primary","Secondary","Accent"],
+  "LineEdit": {
+    "variant_name": ["Primary", "Secondary", "Accent"],
     "colored_text": false
     },
-  "LinkButton":  {
-    "variant_name": ["Primary","Secondary","Accent"],
+  "LinkButton": {
+    "variant_name": ["Primary", "Secondary", "Accent"],
     "colored_text": false
     },
-  "PanelContainer":  {
-    "variant_name": ["Background","Surface","Primary","Secondary","Accent"],
+  "PanelContainer": {
+    "variant_name": ["Background", "Surface", "Primary", "Secondary", "Accent"],
     "colored_text": false
     },
-  "ProgressBar":  {
-    "variant_name": ["Primary","Secondary","Accent"],
+  "ProgressBar": {
+    "variant_name": ["Primary", "Secondary", "Accent"],
     "colored_text": true
     },
-  "TabBar":  {
-    "variant_name": ["Background","Surface","Primary","Secondary","Accent"],
+  "TabBar": {
+    "variant_name": ["Background", "Surface", "Primary", "Secondary", "Accent"],
     "colored_text": true
     },
-  "TabContainer":  {
-    "variant_name": ["Background","Surface","Primary","Secondary","Accent"],
+  "TabContainer": {
+    "variant_name": ["Background", "Surface", "Primary", "Secondary", "Accent"],
     "colored_text": true
     },
-  "VSlider":  {
-    "variant_name": ["Primary","Secondary","Accent"],
+  "VSlider": {
+    "variant_name": ["Primary", "Secondary", "Accent"],
     "colored_text": true
     },
 }
@@ -113,7 +113,7 @@ func set_typography_styles():
     add_type(key)
     set_type_variation(key, "Label")
     set_typography_style(key, key)
-    set_color_style(key,color_text)
+    set_color_style(key, color_text)
 
 func set_typography_style(theme_type: String, typography_name: String):
   var typography_type = typography_types.get(typography_name)
@@ -254,7 +254,7 @@ func set_icon_style(theme_type: String, color: Color):
     if print_debug:
       print("Applied %s to icon %s/%s" % [color, theme_type, icon_name])
 
-func get_color_alpha_variant(color:Color, value: float):
+func get_color_alpha_variant(color: Color, value: float):
   color.a = value
   return color
 
@@ -263,7 +263,7 @@ func get_text_color(theme_type: String, base_color: Color, colored_text: bool):
     return base_color
   if !colored_text:
     return color_text
-  if ColorExtensions.rgb_to_oklab(base_color).l > 0.5:
+  if ColorExtensions.rgb_to_oklab(base_color).l > 0.6:
     return base_color.darkened(0.87)
   return base_color.lightened(0.87)
 
@@ -293,7 +293,7 @@ func set_icon_color(icon_name: String, theme_type: String, color: Color):
   var icon_path = "%s/%s.png" % [icon_dir, icon_name]
   if FileAccess.file_exists(icon_path):
     image = Image.load_from_file(icon_path)
-  else: 
+  else:
     var texture = get_icon(icon_name, theme_type)
     image = texture.get_image()
     image.save_png(icon_path)
@@ -303,7 +303,7 @@ func set_icon_color(icon_name: String, theme_type: String, color: Color):
   
   for x in image.get_width():
     for y in image.get_height():
-      var base_color = image.get_pixel(x,y)
+      var base_color = image.get_pixel(x, y)
       var icon_color = color
       if ColorExtensions.rgb_to_oklab(base_color).l < 0.5:
         icon_color = color.lightened(0.67)
