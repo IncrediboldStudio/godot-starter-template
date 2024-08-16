@@ -51,7 +51,6 @@ Most things are prefixed with prefixes being generally an acronym of the asset t
 | Asset Type   | Prefix | Notes                               |
 | ------------ | ------ | ----------------------------------- |
 | Scene        | scn_   | Should be in the `scenes` directory |
-| Prefab       | pre_   |                                     |
 | UI Control   | ui_    |                                     |
 | Material     | mat_   |                                     |
 | Texture      | t_     |                                     |

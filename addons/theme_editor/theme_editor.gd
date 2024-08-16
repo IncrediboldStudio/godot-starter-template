@@ -70,6 +70,8 @@ func set_variants():
           set_variant(variant, variant_key, color_secondary, color_text)
         "Accent":
           set_variant(variant, variant_key, color_accent, color_text)
+        "Transparent":
+          set_variant(variant, variant_key, Color.TRANSPARENT, color_text)
         _:
           printerr("Unable to create variant %s for base type %s" % [variant, variant_key])
 
@@ -78,17 +80,21 @@ func set_typography_styles():
     var typography_type = typography_types.get(key)
     add_type(key)
     set_type_variation(key, "Label")
-    
-    match typography_type["font_type"]:
+    set_typography_style(key, key)
+
+func set_typography_style(theme_type: String, typography_name: String):
+  var typography_type = typography_types.get(typography_name)
+
+  match typography_type["font_type"]:
       "header":
-        set_font("font", key, font_header)
+        set_font("font", theme_type, font_header)
       "body":
-        set_font("font", key, font_body)
+        set_font("font", theme_type, font_body)
       _:
-        printerr("Error while parsing font for %s, received $s" % [key, typography_type["font_type"]])
-        set_font("font", key, default_font)
-    
-    set_font_size("font_size", key, typography_type["font_size"])
+        printerr("Error while parsing font for %s, received $s" % [theme_type, typography_type["font_type"]])
+        set_font("font", theme_type, default_font)
+  
+  set_font_size("font_size", theme_type, typography_type["font_size"])
 
 func set_variant(variant_name: String, base_type: String, bg_color: Color, color: Color):
   variant_name = base_type + variant_name
@@ -163,12 +169,12 @@ func set_stylebox_style(theme_type: String, color: Color):
       pass
 
     elif stylebox_name.contains("slider") || stylebox_name.contains("background"):
-      var slider_color = color.lightened(0.67)
-      set_stylebox_color(stylebox_name, theme_type, stylebox, get_color_alpha_variant(slider_color, 0.24))
+      var slider_color = get_color_alpha_variant(color.lightened(0.67), 0.24)
+      set_stylebox_color(stylebox_name, theme_type, stylebox, slider_color)
       pass
 
     elif stylebox_name.contains("area_highlight"):
-      var area_highlight_color = color.lightened(0.1)
+      var area_highlight_color = get_hover_color(color)
       set_stylebox_color(stylebox_name, theme_type, stylebox, area_highlight_color)
       pass
 
@@ -214,6 +220,7 @@ func set_icon_style(theme_type: String, color: Color):
     
     if print_debug:
       print("Applied %s to icon %s/%s" % [color, theme_type, icon_name])
+
 
 func get_color_alpha_variant(color:Color, value: float):
   color.a = value

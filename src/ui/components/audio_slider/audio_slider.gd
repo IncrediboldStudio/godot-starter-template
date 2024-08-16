@@ -10,4 +10,4 @@ func _ready():
     
 
 func _value_changed(new_value):
-    AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
+    AudioServer.set_bus_volume_db(bus_index, linear_to_db(new_value))
