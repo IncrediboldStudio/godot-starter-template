@@ -48,6 +48,7 @@ func crossfade(music_name: MusicName):
 	
 func on_fade_out_tween_completed(player):
 	player.stop()
+	player.queue_free()
 
 
 func on_fade_in_tween_completed(player):
