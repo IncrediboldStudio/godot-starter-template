@@ -7,17 +7,50 @@ extends Theme
 @export var print_debug: bool = true
 
 @export var variants: Dictionary = {
-  "Button": ["Primary","Secondary","Accent"],
-  "CheckBox": ["Primary","Secondary","Accent"],
-  "CheckButton": ["Primary","Secondary","Accent"],
-  "HSlider": ["Primary","Secondary","Accent"],
-  "LineEdit": ["Primary","Secondary","Accent"],
-  "LinkButton": ["Primary","Secondary","Accent"],
-  "PanelContainer": ["Background","Surface","Primary","Secondary","Accent"],
-  "ProgressBar": ["Primary","Secondary","Accent"],
-  "TabBar": ["Background","Surface","Primary","Secondary","Accent"],
-  "TabContainer": ["Background","Surface","Primary","Secondary","Accent"],
-  "VSlider": ["Primary","Secondary","Accent"],
+  "Button":  {
+    "variant_name": ["Primary","Secondary","Accent"],
+    "colored_text": true
+    },
+  "CheckBox":  {
+    "variant_name": ["Primary","Secondary","Accent"],
+    "colored_text": false
+    },
+  "CheckButton":  {
+    "variant_name": ["Primary","Secondary","Accent"],
+    "colored_text": false
+    },
+  "HSlider":  {
+    "variant_name": ["Primary","Secondary","Accent"],
+    "colored_text": true
+    },
+  "LineEdit":  {
+    "variant_name": ["Primary","Secondary","Accent"],
+    "colored_text": false
+    },
+  "LinkButton":  {
+    "variant_name": ["Primary","Secondary","Accent"],
+    "colored_text": false
+    },
+  "PanelContainer":  {
+    "variant_name": ["Background","Surface","Primary","Secondary","Accent"],
+    "colored_text": false
+    },
+  "ProgressBar":  {
+    "variant_name": ["Primary","Secondary","Accent"],
+    "colored_text": true
+    },
+  "TabBar":  {
+    "variant_name": ["Background","Surface","Primary","Secondary","Accent"],
+    "colored_text": true
+    },
+  "TabContainer":  {
+    "variant_name": ["Background","Surface","Primary","Secondary","Accent"],
+    "colored_text": true
+    },
+  "VSlider":  {
+    "variant_name": ["Primary","Secondary","Accent"],
+    "colored_text": true
+    },
 }
 
 @export_group("Colors")
@@ -53,23 +86,24 @@ func set_styles():
       set_icon_style(theme_type, color_background)
 
   set_variants()
-  
   print("Styles applied")
 
 func set_variants():
   for variant_key in variants:
-    for variant in variants.get(variant_key):
+    for variant in variants.get(variant_key)["variant_name"]:
       match variant:
         "Background":
-          set_variant(variant, variant_key, color_background, color_text)
+          set_variant(variant, variant_key, color_background, color_background)
         "Surface":
-          set_variant(variant, variant_key, color_surface, color_text)
+          set_variant(variant, variant_key, color_surface, color_surface)
         "Primary":
-          set_variant(variant, variant_key, color_primary, color_text)
+          set_variant(variant, variant_key, color_primary, color_primary)
         "Secondary":
-          set_variant(variant, variant_key, color_secondary, color_text)
+          set_variant(variant, variant_key, color_secondary, color_secondary)
         "Accent":
-          set_variant(variant, variant_key, color_accent, color_text)
+          set_variant(variant, variant_key, color_accent, color_accent)
+        "Transparent":
+          set_variant(variant, variant_key, Color.TRANSPARENT, color_text)
         _:
           printerr("Unable to create variant %s for base type %s" % [variant, variant_key])
 
@@ -78,27 +112,32 @@ func set_typography_styles():
     var typography_type = typography_types.get(key)
     add_type(key)
     set_type_variation(key, "Label")
-    
-    match typography_type["font_type"]:
+    set_typography_style(key, key)
+    set_color_style(key,color_text)
+
+func set_typography_style(theme_type: String, typography_name: String):
+  var typography_type = typography_types.get(typography_name)
+
+  match typography_type["font_type"]:
       "header":
-        set_font("font", key, font_header)
+        set_font("font", theme_type, font_header)
       "body":
-        set_font("font", key, font_body)
+        set_font("font", theme_type, font_body)
       _:
-        printerr("Error while parsing font for %s, received $s" % [key, typography_type["font_type"]])
-        set_font("font", key, default_font)
-    
-    set_font_size("font_size", key, typography_type["font_size"])
+        printerr("Error while parsing font for %s, received $s" % [theme_type, typography_type["font_type"]])
+        set_font("font", theme_type, default_font)
+  
+  set_font_size("font_size", theme_type, typography_type["font_size"])
 
 func set_variant(variant_name: String, base_type: String, bg_color: Color, color: Color):
   variant_name = base_type + variant_name
-  print(variant_name)
   add_type(variant_name)
   set_type_variation(variant_name, base_type)
 
   if !get_stylebox_list(base_type).is_empty():
     set_stylebox_style(variant_name, bg_color)
 
+  color = get_text_color(base_type, color, variants[base_type]["colored_text"])
   if !get_color_list(base_type).is_empty():
     set_color_style(variant_name, color)
 
@@ -120,14 +159,14 @@ func set_color_style(theme_type: String, color: Color):
       set_color(color_name, theme_type, get_disabled_color(color))
 
     elif theme_type.contains("LinkButton"):
-      if color_name.contains("disabled"):
-        set_color(color_name, theme_type, get_disabled_color(color))
-
-      elif color_name.contains("hover"):
+      if color_name.contains("hover"):
         set_color(color_name, theme_type, get_hover_color(color))
 
       elif color_name.contains("pressed"):
         set_color(color_name, theme_type, get_pressed_color(color))
+
+      else:
+        set_color(color_name, theme_type, color)
 
     else:
       set_color(color_name, theme_type, color)
@@ -163,12 +202,12 @@ func set_stylebox_style(theme_type: String, color: Color):
       pass
 
     elif stylebox_name.contains("slider") || stylebox_name.contains("background"):
-      var slider_color = color.lightened(0.67)
-      set_stylebox_color(stylebox_name, theme_type, stylebox, get_color_alpha_variant(slider_color, 0.24))
+      var slider_color = get_color_alpha_variant(color.lightened(0.67), 0.24)
+      set_stylebox_color(stylebox_name, theme_type, stylebox, slider_color)
       pass
 
     elif stylebox_name.contains("area_highlight"):
-      var area_highlight_color = color.lightened(0.1)
+      var area_highlight_color = get_hover_color(color)
       set_stylebox_color(stylebox_name, theme_type, stylebox, area_highlight_color)
       pass
 
@@ -207,7 +246,7 @@ func set_icon_style(theme_type: String, color: Color):
     var icon_texture = set_icon_color(icon_name, theme_type, color)
 
     if icon_name.contains("disabled"):
-      var disabled_color = color_text
+      var disabled_color = get_disabled_color(color)
       icon_texture = set_icon_color(icon_name, theme_type, disabled_color)
       
     set_icon(icon_name, theme_type, icon_texture)
@@ -218,6 +257,15 @@ func set_icon_style(theme_type: String, color: Color):
 func get_color_alpha_variant(color:Color, value: float):
   color.a = value
   return color
+
+func get_text_color(theme_type: String, base_color: Color, colored_text: bool):
+  if theme_type.contains("LinkButton"):
+    return base_color
+  if !colored_text:
+    return color_text
+  if ColorExtensions.rgb_to_oklab(base_color).l > 0.5:
+    return base_color.darkened(0.87)
+  return base_color.lightened(0.87)
 
 func set_stylebox_color(stylebox_name: String, theme_type: String, stylebox: StyleBox, color: Color):
   if stylebox is StyleBoxFlat:

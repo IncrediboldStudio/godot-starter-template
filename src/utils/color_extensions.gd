@@ -1,9 +1,16 @@
 class_name ColorExtensions
 
 class OKLABColor:
-  var l:float
+  ## range [0,1]
+  var l: float
+
+  ## range [-0.4,0.4]
   var a: float
+
+  ## range [-0.4,0.4]
   var b: float
+
+  ## range [0,1]
   var alpha: float
 
   func _init(_l, _a, _b, _alpha):
@@ -15,31 +22,58 @@ class OKLABColor:
   func _to_string():
     return "OKLAB(%f,%f,%f,%f)" % [l, a, b, alpha]
 
-
-#region OKLAB 
-# https://gist.github.com/earthbound19/e7fe15fdf8ca3ef814750a61bc75b5ce
-
-static func gamma_to_linear(gamma: float):
-  return pow((gamma + 0.055)/1.055, 2.4) if gamma >= 0.04045 else gamma / 12.92
-
-static func rgb_to_oklab(color: Color):
-  var r = gamma_to_linear(color.r)
-  var g = gamma_to_linear(color.g)
-  var b = gamma_to_linear(color.b)
-
-  var l = 0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b;
-  var m = 0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b;
-  var s = 0.0883024619 * r + 0.2817188376 * b + 0.6299787005 * b;
-
-  l = pow(l, 1.0/3.0)
-  m = pow(m, 1.0/3.0)
-  s = pow(s, 1.0/3.0)
-
+#see https://github.com/Evercoder/culori
+static func _lrgb_to_oklab(color: Color):
+  var l = pow(
+    0.41222147079999993 * color.r + 0.5363325363 * color.g + 0.0514459929 * color.b, 
+    1.0/2.0
+  )
+  var m = pow(
+    0.2119034981999999 * color.r + 0.6806995450999999 * color.g + 0.1073969566 * color.b, 
+    1.0/2.0
+  )
+  var s = pow(
+    0.08830246189999998 * color.r + 0.2817188376 * color.g + 0.6299787005000002 * color.b, 
+    1.0/2.0
+  )
+  
   return OKLABColor.new(
-    l * 0.2104542553 + m * 0.7936177850 + s * -0.0040720468,
-    l * 1.9779984951 + m * -2.4285922050 + s * 0.4505937099,
-    l * 0.0259040371 + m * 0.7827717662 + s * -0.8086757660,
+    0.2104542553 * l + 0.793617785 * m - 0.0040720468 * s,
+    1.9779984951 * l - 2.428592205 * m + 0.4505937099 * s,
+    0.0259040371 * l + 0.7827717662 * m - 0.808675766 * s,
     color.a
   )
 
-#endregion
+static func rgb_to_oklab(color: Color):
+  var oklab = ColorExtensions._lrgb_to_oklab(color)
+  if color.r == color.b && color.b == color.g:
+    oklab.a = 0
+    oklab.b = 0
+  return oklab
+
+static func oklab_to_rgb(color: OKLABColor):
+  var l = pow(
+    color.l * 0.99999999845051981432 +
+    0.39633779217376785678 * color.a +
+    0.21580375806075880339 * color.b,
+    3
+  );
+  var m = pow(
+      color.l * 1.0000000088817607767 -
+      0.1055613423236563494 * color.a -
+      0.063854174771705903402 * color.b,
+    3
+  );
+  var s = pow(
+    color.l * 1.0000000546724109177 -
+      0.089484182094965759684 * color.a -
+      1.2914855378640917399 * color.b,
+    3
+  );
+
+  return Color(
+    4.076741661347994 * l - 3.307711590408193 * m + 0.230969928729428 * s,
+    -1.2684380040921763 * l + 2.6097574006633715 * m - 0.3413193963102197 * s,
+    -0.004196086541837188 * l - 0.7034186144594493 * m + 1.7076147009309444 * s,
+    color.a
+  )

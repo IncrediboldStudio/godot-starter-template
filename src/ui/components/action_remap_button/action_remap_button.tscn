@@ -5,5 +5,7 @@
 [node name="ActionRemapButton" type="Button"]
 offset_right = 90.0
 offset_bottom = 30.0
+size_flags_horizontal = 0
+tooltip_text = "Press to remap keybind"
 toggle_mode = true
 script = ExtResource("1")

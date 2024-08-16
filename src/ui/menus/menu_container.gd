@@ -3,6 +3,11 @@ extends CanvasLayer
 var menu_stack: Array[Menu]
 
 func _ready():
+    var color = Color(1.0,0.5,0.0,1)
+    var oklab = ColorExtensions.rgb_to_oklab(color)
+    print(oklab)
+    print(ColorExtensions.oklab_to_rgb(oklab))
+
     var menus = find_children("", "Menu")
     for menu in menus:
         menu.on_menu_change.connect(change_menu)
