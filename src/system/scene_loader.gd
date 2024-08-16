@@ -37,8 +37,8 @@ func set_configuration(config: Dictionary) -> void:
 ##
 ## Returns: None
 func load_scene(next_scene: String, current_scene: Node = null) -> void:
-	var loading_screen_instance: Node = initialize_loading_screen()
-	var path: String = find_scene_path(next_scene)
+	var loading_screen_instance: Node = _initialize_loading_screen()
+	var path: String = _find_scene_path(next_scene)
 
 	# Start loading scene
 	if ResourceLoader.load_threaded_request(path) != OK:
@@ -71,13 +71,13 @@ func load_scene(next_scene: String, current_scene: Node = null) -> void:
 				return
 			ThreadStatus.LOADED:
 				loading_screen_instance.update_loading_progress.emit(load_progress[0])
-				load_next_scene(path, loading_screen_instance)
+				_load_next_scene(path, loading_screen_instance)
 				return
 
 ## Loads a scene asynchronously and adds it to the current scene.
 ##
 ## Returns: Loading screen instance
-func initialize_loading_screen() -> Node:
+func _initialize_loading_screen() -> Node:
 	var loading_screen_instance: Node = loading_screen.instantiate()
 	get_tree().get_root().call_deferred("add_child", loading_screen_instance)
 
@@ -89,7 +89,7 @@ func initialize_loading_screen() -> Node:
 ## - next_scene: The path to the scene to be loaded.
 ##
 ## Returns: The path to the scene file.
-func find_scene_path(next_scene: String) -> String:
+func _find_scene_path(next_scene: String) -> String:
 	# Find path to the scene file
 	var path: String = scenes[next_scene] if scenes.has(next_scene) else next_scene
 
@@ -106,7 +106,7 @@ func find_scene_path(next_scene: String) -> String:
 ## - next_scene: The path to the scene to be loaded.
 ##
 ## Returns: The path to the scene file.
-func get_last_string(last_scene: Node) -> Node:
+func _get_last_string(last_scene: Node) -> Node:
 	# Find path to the scene file
 	if last_scene:
 		return last_scene
@@ -120,7 +120,7 @@ func get_last_string(last_scene: Node) -> Node:
 ## - loading_screen_instance: The loading screen instance.
 ##
 ## Returns: None
-func load_next_scene(path: String, loading_screen_instance: Node) -> void:
+func _load_next_scene(path: String, loading_screen_instance: Node) -> void:
 	var next_scene_instance = ResourceLoader.load_threaded_get(path).instantiate()
 	get_tree().get_root().call_deferred("add_child", next_scene_instance)
 	loading_screen_instance.loading_finished.emit()
