@@ -57,7 +57,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Test Input"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RemapButton" parent="RemapButtonGroup/ActionsList/ActionRemapRow" instance=ExtResource("1_37tni")]

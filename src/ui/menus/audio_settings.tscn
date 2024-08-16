@@ -23,15 +23,14 @@ vertical_alignment = 1
 
 [node name="AudioSliderGroup" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -160.0
-offset_top = -144.0
+offset_top = -116.0
 offset_right = 160.0
-offset_bottom = 144.0
+offset_bottom = 172.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -64,6 +63,8 @@ vertical_alignment = 1
 [node name="MasterSlider" type="HSlider" parent="AudioSliderGroup/AudioSliderList/MasterSliderRow"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"HSliderPrimary"
 max_value = 1.0
 step = 0.01
 script = ExtResource("1_weasa")
@@ -84,6 +85,8 @@ vertical_alignment = 1
 [node name="MusicSlider" type="HSlider" parent="AudioSliderGroup/AudioSliderList/MusicSliderRow"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"HSliderPrimary"
 max_value = 1.0
 step = 0.01
 script = ExtResource("1_weasa")
@@ -104,6 +107,8 @@ vertical_alignment = 1
 [node name="SfxSlider" type="HSlider" parent="AudioSliderGroup/AudioSliderList/SfxSliderRow"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"HSliderPrimary"
 max_value = 1.0
 step = 0.01
 script = ExtResource("1_weasa")
