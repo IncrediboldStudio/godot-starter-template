@@ -1,0 +1,110 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgdcegdvx3ooh"]
+
+[ext_resource type="Script" path="res://src/ui/components/audio_slider/audio_slider.gd" id="1_weasa"]
+
+[node name="AudioSettings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 24.0
+offset_bottom = 55.0
+grow_horizontal = 2
+text = "Audio Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioSliderGroup" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -144.0
+offset_right = 160.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioSliderList" type="VBoxContainer" parent="AudioSliderGroup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.0
+offset_top = -21.0
+offset_right = 241.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MasterSliderRow" type="HBoxContainer" parent="AudioSliderGroup/AudioSliderList"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MasterLabel" type="Label" parent="AudioSliderGroup/AudioSliderList/MasterSliderRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Master"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="AudioSliderGroup/AudioSliderList/MasterSliderRow"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+script = ExtResource("1_weasa")
+
+[node name="MusicSliderRow" type="HBoxContainer" parent="AudioSliderGroup/AudioSliderList"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MusicLabel" type="Label" parent="AudioSliderGroup/AudioSliderList/MusicSliderRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Music
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="AudioSliderGroup/AudioSliderList/MusicSliderRow"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+script = ExtResource("1_weasa")
+bus = &"Music"
+
+[node name="SfxSliderRow" type="HBoxContainer" parent="AudioSliderGroup/AudioSliderList"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SfxLabel" type="Label" parent="AudioSliderGroup/AudioSliderList/SfxSliderRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Sfx"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SfxSlider" type="HSlider" parent="AudioSliderGroup/AudioSliderList/SfxSliderRow"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+script = ExtResource("1_weasa")
+bus = &"Sfx"
