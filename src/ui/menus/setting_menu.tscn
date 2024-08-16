@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://djfhbjm03xr6t"]
+[gd_scene load_steps=2 format=3 uid="uid://fq81v6b2v4eq"]
 
 [ext_resource type="Script" path="res://src/ui/menus/menu.gd" id="1_agikh"]
 
@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_agikh")
 
 [node name="Button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 18.0
 offset_top = 17.0
 offset_right = 63.0

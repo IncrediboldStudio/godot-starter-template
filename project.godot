@@ -25,6 +25,13 @@ KeyPersistence="*res://src/system/key_persistence.gd"
 
 gdscript/warnings/unused_variable=2
 
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=720
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/panku_console/plugin.cfg", "res://addons/theme_editor/plugin.cfg")
