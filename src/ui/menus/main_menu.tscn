@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://hrsyegb3v66m"]
+
+[ext_resource type="Script" path="res://src/ui/menus/menu.gd" id="1_ed4f5"]
+[ext_resource type="Script" path="res://src/ui/buttons/quit_button.gd" id="2_aj4hg"]
+[ext_resource type="Script" path="res://src/ui/buttons/change_scene_button.gd" id="2_ix6u7"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ed4f5")
+
+[node name="Game Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -87.0
+offset_right = 20.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play Button" type="Button" parent="Menu"]
+layout_mode = 2
+text = "Play"
+script = ExtResource("2_ix6u7")
+scene_to_load = "res://src/scenes/scn_main.tscn"
+
+[node name="Settings Button" type="Button" parent="Menu"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Credits Button" type="Button" parent="Menu"]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit Button" type="Button" parent="Menu"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("2_aj4hg")
+
+[connection signal="pressed" from="Menu/Settings Button" to="." method="change_menu" binds= ["setting_menu"]]
+[connection signal="pressed" from="Menu/Credits Button" to="." method="change_menu" binds= ["credits_menu"]]
