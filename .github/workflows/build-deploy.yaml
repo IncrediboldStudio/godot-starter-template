@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  GODOT_VERSION: '4.1.4'
+  GODOT_VERSION: '4.3'
   GODOT_PATCH_VERSION: stable
 
 permissions:
