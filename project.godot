@@ -22,10 +22,10 @@ buses/default_bus_layout="res://src/audio/default_bus_layout.tres"
 [autoload]
 
 SceneLoader="*res://src/system/scene_loader.gd"
-Panku="*res://addons/panku_console/console.tscn"
 SfxManager="*res://src/system/game_settings/audio/sfx_manager.gd"
 MusicManager="*res://src/system/game_settings/audio/music_manager.gd"
 KeyPersistence="*res://src/system/key_persistence.gd"
+Panku="*res://addons/panku_console/console.tscn"
 
 [display]
 
@@ -36,7 +36,7 @@ window/stretch/aspect="keep_height"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/panku_console/plugin.cfg", "res://addons/theme_editor/plugin.cfg")
+enabled=PackedStringArray("res://addons/animatedtexturerect/plugin.cfg", "res://addons/panku_console/plugin.cfg", "res://addons/theme_editor/plugin.cfg")
 
 [gui]
 
@@ -49,7 +49,3 @@ test_input={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":47,"physical_keycode":0,"key_label":0,"unicode":47,"location":0,"echo":false,"script":null)
 ]
 }
-
-[panku]
-
-disable_on_release=true
