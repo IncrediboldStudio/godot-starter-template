@@ -54,6 +54,7 @@ jobs:
       - name: Export Godot project
         run: |
           mkdir -vp build-${{ matrix.targetPlatform.name }}
+          ${GITHUB_WORKSPACE}/godot --e --quit
           ${GITHUB_WORKSPACE}/godot --headless -s plug.gd install
           ${GITHUB_WORKSPACE}/godot --headless --export-release ${{ matrix.targetPlatform.name }} build-${{ matrix.targetPlatform.name }}/${{ matrix.targetPlatform.path }}
       - name: Generate artifacts
