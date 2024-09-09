@@ -53,13 +53,13 @@ jobs:
           rm templates.tpz godot.zip
       - name: Reimport project assets
         run: |
-          mkdir -vp build-${{ matrix.targetPlatform.name }}
           ${GITHUB_WORKSPACE}/godot --headless --import
       - name: Run gd-plug
         run: |
           ${GITHUB_WORKSPACE}/godot --headless -s plug.gd install
       - name: Export Godot project
         run: |
+          mkdir -vp build-${{ matrix.targetPlatform.name }}
           ${GITHUB_WORKSPACE}/godot --headless --export-release ${{ matrix.targetPlatform.name }} build-${{ matrix.targetPlatform.name }}/${{ matrix.targetPlatform.path }}
       - name: Generate artifacts
         uses: actions/upload-artifact@v4
