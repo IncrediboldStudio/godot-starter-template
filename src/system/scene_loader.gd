@@ -9,8 +9,6 @@ enum ThreadStatus {
   LOADED,
 }
 
-enum T {Q,W,E}
-
 var scenes: Dictionary = {}
 var loading_screen: Resource = preload("res://src/scenes/loading_screen/scn_loading_screen.tscn")
 

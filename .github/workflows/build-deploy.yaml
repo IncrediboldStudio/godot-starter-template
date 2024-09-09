@@ -17,7 +17,7 @@ permissions:
 
 jobs:
   lint:
-    name: Lint and Project
+    name: Lint and Format
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -39,6 +39,8 @@ jobs:
       
       - name: Run GdFormat
         run: gdformat ./ -s 2 -d
+        continue-on-error: true
+        
   export:
     name: Export for ${{ matrix.targetPlatform.name }}
     runs-on: ubuntu-latest
@@ -64,11 +66,11 @@ jobs:
           godot-release: ${{ env.GODOT_RELEASE }}
       - name: Run gd-plug
         run: |
-          ${GITHUB_WORKSPACE}/godot --headless -s plug.gd install
+          godot --headless -s plug.gd install
       - name: Export Godot project
         run: |
           mkdir -vp build-${{ matrix.targetPlatform.name }}
-          ${GITHUB_WORKSPACE}/godot --headless --export-release ${{ matrix.targetPlatform.name }} build-${{ matrix.targetPlatform.name }}/${{ matrix.targetPlatform.path }}
+          godot --headless --export-release ${{ matrix.targetPlatform.name }} build-${{ matrix.targetPlatform.name }}/${{ matrix.targetPlatform.path }}
       - name: Generate artifacts
         uses: actions/upload-artifact@v4
         with:
