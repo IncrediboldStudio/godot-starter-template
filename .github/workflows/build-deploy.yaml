@@ -17,7 +17,7 @@ permissions:
 
 jobs:
   lint:
-    name: Lint Project
+    name: Lint and Project
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -36,6 +36,9 @@ jobs:
       
       - name: Run GdLint
         run: gdlint ./
+      
+      - name: Run GdFormat
+        run: gdformat ./ -s 2 -d
   export:
     name: Export for ${{ matrix.targetPlatform.name }}
     runs-on: ubuntu-latest

@@ -5,9 +5,10 @@ inputs:
     description: Godot version to use (default '4.3')
     required: true
     default: '4.3'
-  godot-release: Godot release to use (deafult 'stable')
-  required: true
-  default: stable
+  godot-release: 
+    description: Godot release to use (deafult 'stable')
+    required: true
+    default: stable
 
 runs:
   using: composite
@@ -30,12 +31,12 @@ runs:
         mkdir -vp ~/.local/share/godot/export_templates/${GODOT_VERSION}.${GODOT_RELEASE}
         mv templates/* ~/.local/share/godot/export_templates/${GODOT_VERSION}.${GODOT_RELEASE}
 
-        mv Godot_v${GODOT_VERSION}-${GODOT_RELEASE}_linux.x86_64 godot
+        mv Godot_v${GODOT_VERSION}-${GODOT_PATCH_VERSION}_linux.x86_64 /usr/local/bin/godot
 
         rm -R templates/
         rm templates.tpz godot.zip
 
-      - name: Reimport project assets
-        shell: bash
-        run: |
-          godot --headless --import
+    - name: Reimport project assets
+      shell: bash
+      run: |
+        godot --headless --import
