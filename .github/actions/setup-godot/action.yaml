@@ -1,0 +1,41 @@
+name: Setup Godot
+description: Downloads Godot binaries and export templates
+inputs:
+  godot-version:
+    description: Godot version to use (default '4.3')
+    required: true
+    default: '4.3'
+  godot-release: Godot release to use (deafult 'stable')
+  required: true
+  default: stable
+
+runs:
+  using: composite
+  steps:
+    - name: Download Godot executable and templates
+      shell: bash
+      env: 
+        GODOT_VERSION: ${{ inputs.godot-version }}
+        GODOT_RELEASE: ${{ inputs.godot-release }}
+        GODOT_URL: "https://github.com/godotengine/godot/releases/download/${{ inputs.godot-version }}-${{ inputs.godot-release }}/Godot_v${{ inputs.godot-version }}-${{ inputs.godot-release }}_linux.x86_64.zip"
+        GODOT_TEMPLATES_URL: "https://github.com/godotengine/godot/releases/download/${{ inputs.godot-version }}-${{ inputs.godot-release }}/Godot_v${{ inputs.godot-version }}-${{ inputs.godot-release }}_export_templates.tpz"
+      run: |
+        echo ${GODOT_URL}
+        curl -L ${GODOT_URL} > godot.zip
+        curl -L ${GODOT_TEMPLATES_URL} > templates.tpz
+
+        unzip godot.zip
+        unzip templates.tpz
+
+        mkdir -vp ~/.local/share/godot/export_templates/${GODOT_VERSION}.${GODOT_RELEASE}
+        mv templates/* ~/.local/share/godot/export_templates/${GODOT_VERSION}.${GODOT_RELEASE}
+
+        mv Godot_v${GODOT_VERSION}-${GODOT_RELEASE}_linux.x86_64 godot
+
+        rm -R templates/
+        rm templates.tpz godot.zip
+
+      - name: Reimport project assets
+        shell: bash
+        run: |
+          godot --headless --import
