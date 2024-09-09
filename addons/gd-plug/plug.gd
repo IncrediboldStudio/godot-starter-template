@@ -179,6 +179,7 @@ func _finalize():
 	_plug_end()
 	threadpool.stop()
 	logger.info("Finished, elapsed %.3fs" % ((Time.get_ticks_msec() - _start_time) / 1000.0))
+	request_quit(0)
 
 func _on_updated(plugin):
 	pass
