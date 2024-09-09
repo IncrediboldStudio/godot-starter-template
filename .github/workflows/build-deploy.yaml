@@ -55,7 +55,7 @@ jobs:
         run: |
           mkdir -vp build-${{ matrix.targetPlatform.name }}
           ${GITHUB_WORKSPACE}/godot --headless --import
-          ${GITHUB_WORKSPACE}/godot --headless -s plug.gd install --quit
+          ${GITHUB_WORKSPACE}/godot --headless -s plug.gd install --quit-after 1000
           ${GITHUB_WORKSPACE}/godot --headless --export-release ${{ matrix.targetPlatform.name }} build-${{ matrix.targetPlatform.name }}/${{ matrix.targetPlatform.path }}
       - name: Generate artifacts
         uses: actions/upload-artifact@v4
