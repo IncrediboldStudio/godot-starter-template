@@ -15,6 +15,20 @@ permissions:
   id-token: write
 
 jobs:
+  # test:
+    # container:
+    #   image: gcr.io/${{github.repository}}:main
+    # steps:
+    #   - name: Checkout
+    #     uses: actions/checkout@v4
+    #     with:
+    #       fetch-depth: 0
+    #       lfs: true
+    #   - name: Set ownership
+    #     run: |
+    #       # Workaround for https://github.com/actions/runner/issues/2033
+    #       chown -R $(id -u):$(id -g) $PWD
+    #   - run: godot --version
   export:
     name: Export for ${{ matrix.targetPlatform.name }}
     runs-on: ubuntu-latest
