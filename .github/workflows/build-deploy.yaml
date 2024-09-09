@@ -51,6 +51,12 @@ jobs:
 
           rm -R templates/
           rm templates.tpz godot.zip
+      - name: Reimport project assets
+        run: |
+          ${GITHUB_WORKSPACE}/godot --headless --import
+      - name: Run gd-plug
+        run: |
+          ${GITHUB_WORKSPACE}/godot --headless -s plug.gd install
       - name: Export Godot project
         run: |
           mkdir -vp build-${{ matrix.targetPlatform.name }}

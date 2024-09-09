@@ -15,3 +15,11 @@ export.cfg
 
 # Project-specific ignores
 src\ui\icons
+
+# Plugins are installed by gd_plug, so they are ignored
+.plugged/
+addons/*
+
+# Except the "core" ones
+!addons/gd-plug/
+!addons/theme_editor/
