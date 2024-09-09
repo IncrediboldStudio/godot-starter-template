@@ -25,7 +25,6 @@ SceneLoader="*res://src/system/scene_loader.gd"
 SfxManager="*res://src/system/game_settings/audio/sfx_manager.gd"
 MusicManager="*res://src/system/game_settings/audio/music_manager.gd"
 KeyPersistence="*res://src/system/key_persistence.gd"
-Panku="*res://addons/panku_console/console.tscn"
 
 [display]
 
@@ -36,7 +35,7 @@ window/stretch/aspect="keep_height"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/animatedtexturerect/plugin.cfg", "res://addons/panku_console/plugin.cfg", "res://addons/theme_editor/plugin.cfg")
+enabled=PackedStringArray("res://addons/theme_editor/plugin.cfg")
 
 [gui]
 
