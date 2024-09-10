@@ -2,7 +2,8 @@ extends Button
 
 var theme_editor: ThemeEditor
 
-func _init(_theme_editor:ThemeEditor):
+
+func _init(_theme_editor: ThemeEditor):
   theme_editor = _theme_editor
   text = "Apply Styles"
   pressed.connect(self.on_button_pressed)

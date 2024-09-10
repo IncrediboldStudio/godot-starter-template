@@ -5,13 +5,26 @@
 
 Here is a [style guide](docs/style_guide.md) that goes more in detail on the project structure.
 
+## Prerequisites
+
+### GDScript Toolkit
+It is highly recommended to install the [GDScript Toolkit](https://github.com/Scony/godot-gdscript-toolkit) as the CI uses it to lint all project files.
+
+To run the linter, use the command:
+```
+gdlint ./
+```
+The formatting convention we use is indent with 2 spaces, therefore, to run the formatter, use the command:
+```
+gdformat ./ -s 2
+```
+*You can add the --diff flag to only suggest the formatting changes since there are currently some known [caveats](https://github.com/Scony/godot-gdscript-toolkit/wiki/4.-Formatter#caveats) with the formatter.*
+
 ## Getting Started
 
 Clone the project:
 ```
-
 git clone https://github.com/IncrediboldStudio/godot-starter-template.git
-
 ```
 
 # Features
