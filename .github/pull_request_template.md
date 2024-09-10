@@ -1,13 +1,5 @@
-## What type of PR is this? (check all applicable)
-
-- [ ] Feature
-- [ ] Bug Fix
-- [ ] Refactor
-- [ ] Optimization
-- [ ] Documentation Update
-
-### Describe your changes:
-
+## Describe your changes:
+*Add your description here...*
 
 ## Checklist:
  - [ ] The changes have been tested in the engine
@@ -15,3 +7,9 @@
  - [ ] Changes in scenes have been saved correctly
  - [ ] The code follows the [style guide](https://github.com/IncrediboldStudio/godot-starter-template/blob/main/docs/style_guide.md)
  - [ ] The corresponding changes in the documentation have been made
+
+ ## Reviewer Checklist:
+ - [ ] The code is readable and easy to understand
+ - [ ] There is no redundant or duplicate code
+
+
