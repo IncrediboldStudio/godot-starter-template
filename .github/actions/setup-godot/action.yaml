@@ -6,7 +6,7 @@ inputs:
     required: true
     default: '4.3'
   godot-release: 
-    description: Godot release to use (deafult 'stable')
+    description: Godot release to use (default 'stable')
     required: true
     default: stable
 
