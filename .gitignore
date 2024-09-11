@@ -11,7 +11,8 @@ export.cfg
 # IDE and OS specific
 .idea/
 .DS_Store
-.vscode
+.vscode/*
+!.vscode/launch.json
 
 # Project-specific ignores
 src\ui\icons
