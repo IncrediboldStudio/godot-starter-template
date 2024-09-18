@@ -1,7 +1,9 @@
 @tool
 extends EditorPlugin
 
-var inspector_plugin: EditorInspectorPlugin = preload("res://addons/theme_editor/theme_editor_inspector.gd").new()
+var inspector_plugin: EditorInspectorPlugin = (
+  preload("res://addons/theme_editor/theme_editor_inspector.gd").new()
+)
 
 
 func _enter_tree() -> void:
