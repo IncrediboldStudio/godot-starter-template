@@ -1,3 +1,4 @@
 excluded_directories: !!set
   .git: null
   gd-plug: null
+  .plugged: null

@@ -12,7 +12,7 @@ enum ThreadStatus {
 var scenes: Dictionary = {}
 var loading_screen: Resource = preload("res://src/scenes/loading_screen/scn_loading_screen.tscn")
 
-var last_loaded_scene = null
+var last_loaded_scene: Node = null
 
 
 ## Sets the configuration for the scene loader.
@@ -38,7 +38,7 @@ func set_configuration(config: Dictionary) -> void:
 ##
 ## Returns: None
 func load_scene(next_scene: String, current_scene: Node = null) -> void:
-  var loading_screen_instance: Node = _initialize_loading_screen()
+  var loading_screen_instance: LoadingScreen = _initialize_loading_screen()
   var path: String = _find_scene_path(next_scene)
 
   # Start loading scene
@@ -59,8 +59,8 @@ func load_scene(next_scene: String, current_scene: Node = null) -> void:
   if is_instance_valid(current_scene):
     current_scene.queue_free()
   while true:
-    var load_progress = []
-    var load_status = ResourceLoader.load_threaded_get_status(path, load_progress)
+    var load_progress: Array = []
+    var load_status: int = ResourceLoader.load_threaded_get_status(path, load_progress)
 
     match load_status:
       ThreadStatus.INVALID_RESOURCE:
@@ -81,8 +81,8 @@ func load_scene(next_scene: String, current_scene: Node = null) -> void:
 ## Loads a scene asynchronously and adds it to the current scene.
 ##
 ## Returns: Loading screen instance
-func _initialize_loading_screen() -> Node:
-  var loading_screen_instance: Node = loading_screen.instantiate()
+func _initialize_loading_screen() -> LoadingScreen:
+  var loading_screen_instance: LoadingScreen = loading_screen.instantiate()
   get_tree().get_root().call_deferred("add_child", loading_screen_instance)
 
   return loading_screen_instance
@@ -126,7 +126,7 @@ func _get_last_string(last_scene: Node) -> Node:
 ##
 ## Returns: None
 func _load_next_scene(path: String, loading_screen_instance: Node) -> void:
-  var next_scene_instance = ResourceLoader.load_threaded_get(path).instantiate()
+  var next_scene_instance: Node = ResourceLoader.load_threaded_get(path).instantiate()
   get_tree().get_root().call_deferred("add_child", next_scene_instance)
   loading_screen_instance.loading_finished.emit()
   last_loaded_scene = next_scene_instance

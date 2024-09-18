@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://bjjxcfs8f1vmk"]
 
-[ext_resource type="Script" path="res://src/ui/menus/menu_container.gd" id="1_3mc1x"]
+[ext_resource type="Script" path="res://src/ui/components/menu/menu_container.gd" id="1_3mc1x"]
 [ext_resource type="Script" path="res://src/system/init_scene.gd" id="1_bwpuq"]
-[ext_resource type="PackedScene" uid="uid://dmc2y1c70axe4" path="res://src/ui/menus/credits_menu.tscn" id="3_loj34"]
-[ext_resource type="PackedScene" uid="uid://hrsyegb3v66m" path="res://src/ui/menus/main_menu.tscn" id="4_eo3nr"]
-[ext_resource type="PackedScene" uid="uid://c2ix1hajlrdqq" path="res://src/ui/menus/title_screen.tscn" id="4_hfbd7"]
-[ext_resource type="PackedScene" uid="uid://dj1mns8gt38um" path="res://src/ui/menus/settings_menu.tscn" id="5_4xyse"]
+[ext_resource type="PackedScene" uid="uid://dmc2y1c70axe4" path="res://src/ui/components/menu/credits_menu.tscn" id="3_loj34"]
+[ext_resource type="PackedScene" uid="uid://hrsyegb3v66m" path="res://src/ui/components/menu/main_menu.tscn" id="4_eo3nr"]
+[ext_resource type="PackedScene" uid="uid://c2ix1hajlrdqq" path="res://src/ui/components/menu/title_screen.tscn" id="4_hfbd7"]
+[ext_resource type="PackedScene" uid="uid://dj1mns8gt38um" path="res://src/ui/components/menu/settings_menu.tscn" id="5_4xyse"]
 
 [node name="start_menu" type="Control"]
 layout_mode = 3
