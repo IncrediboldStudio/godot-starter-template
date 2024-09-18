@@ -1,6 +1,6 @@
 extends Button
 
-@export var action := "ui_up"
+@export var action: StringName = "ui_up"
 
 
 func _ready() -> void:
@@ -47,5 +47,5 @@ func remap_action_to(event: InputEvent) -> void:
 
 
 func display_current_key() -> void:
-  var current_key := InputMap.action_get_events(action)[0].as_text()
+  var current_key: StringName = InputMap.action_get_events(action)[0].as_text()
   text = current_key
