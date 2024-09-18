@@ -1,3 +1,4 @@
+class_name LoadingScreen
 extends CanvasLayer
 
 @warning_ignore("unused_signal")

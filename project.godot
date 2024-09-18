@@ -26,6 +26,11 @@ SfxManager="*res://src/system/game_settings/audio/sfx_manager.gd"
 MusicManager="*res://src/system/game_settings/audio/music_manager.gd"
 KeyPersistence="*res://src/system/key_persistence.gd"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+gdscript/warnings/inferred_declaration=2
+
 [display]
 
 window/size/viewport_width=1080
@@ -39,7 +44,7 @@ enabled=PackedStringArray("res://addons/theme_editor/plugin.cfg")
 
 [gui]
 
-theme/custom="res://src/ui/th_default.tres"
+theme/custom="res://src/ui/theme/th_default.tres"
 
 [input]
 

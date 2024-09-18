@@ -2,14 +2,15 @@
 # the key maps in a simple way through a dictionary.
 extends Node
 
-const KEYMAPS_PATH := "user://keymaps.dat"
+const KEYMAPS_PATH: StringName = "user://keymaps.dat"
+
 var keymaps: Dictionary
 
 
 func _ready() -> void:
   # First we create the keymap dictionary on startup with all
   # the keymap actions we have.
-  for action in InputMap.get_actions():
+  for action: StringName in InputMap.get_actions():
     if not InputMap.action_get_events(action).is_empty():
       keymaps[action] = InputMap.action_get_events(action)[0]
   load_keymap()
@@ -28,14 +29,14 @@ func load_keymap() -> void:
 
     # Whilst setting the keymap dictionary, we also set the
     # correct InputMap event.
-  var file := FileAccess.open(KEYMAPS_PATH, FileAccess.READ)
+  var file: FileAccess = FileAccess.open(KEYMAPS_PATH, FileAccess.READ)
   var temp_keymap: Dictionary = file.get_var(true)
   file.close()
   # We don't just replace the keymaps dictionary, because if you
   # updated your game and removed/added keymaps, the data of this
   # save file may have invalid actions. So we check one by one to
   # make sure that the keymap dictionary really has all current actions.
-  for action in keymaps.keys():
+  for action: StringName in keymaps.keys():
     if temp_keymap.has(action):
       keymaps[action] = temp_keymap[action]
       # Whilst setting the keymap dictionary, we also set the
@@ -46,6 +47,6 @@ func load_keymap() -> void:
 
 func save_keymap() -> void:
   # For saving the keymap, we just save the entire dictionary as a var.
-  var file := FileAccess.open(KEYMAPS_PATH, FileAccess.WRITE)
+  var file: FileAccess = FileAccess.open(KEYMAPS_PATH, FileAccess.WRITE)
   file.store_var(keymaps, true)
   file.close()

@@ -14,25 +14,25 @@ class OKLABColor:
   ## range [0,1]
   var alpha: float
 
-  func _init(_l, _a, _b, _alpha):
+  func _init(_l: float, _a: float, _b: float, _alpha: float) -> void:
     l = _l
     a = _a
     b = _b
     alpha = _alpha
 
-  func _to_string():
+  func _to_string() -> String:
     return "OKLAB(%f,%f,%f,%f)" % [l, a, b, alpha]
 
 
 #see https://github.com/Evercoder/culori
-static func _lrgb_to_oklab(color: Color):
-  var l = pow(
+static func _lrgb_to_oklab(color: Color) -> OKLABColor:
+  var l: float = pow(
     0.41222147079999993 * color.r + 0.5363325363 * color.g + 0.0514459929 * color.b, 1.0 / 2.0
   )
-  var m = pow(
+  var m: float = pow(
     0.2119034981999999 * color.r + 0.6806995450999999 * color.g + 0.1073969566 * color.b, 1.0 / 2.0
   )
-  var s = pow(
+  var s: float = pow(
     0.08830246189999998 * color.r + 0.2817188376 * color.g + 0.6299787005000002 * color.b, 1.0 / 2.0
   )
 
@@ -44,16 +44,16 @@ static func _lrgb_to_oklab(color: Color):
   )
 
 
-static func rgb_to_oklab(color: Color):
-  var oklab = _lrgb_to_oklab(color)
+static func rgb_to_oklab(color: Color) -> OKLABColor:
+  var oklab: OKLABColor = _lrgb_to_oklab(color)
   if color.r == color.b && color.b == color.g:
     oklab.a = 0
     oklab.b = 0
   return oklab
 
 
-static func oklab_to_rgb(color: OKLABColor):
-  var l = pow(
+static func oklab_to_rgb(color: OKLABColor) -> Color:
+  var l: float = pow(
     (
       color.l * 0.99999999845051981432
       + 0.39633779217376785678 * color.a
@@ -61,7 +61,7 @@ static func oklab_to_rgb(color: OKLABColor):
     ),
     3
   )
-  var m = pow(
+  var m: float = pow(
     (
       color.l * 1.0000000088817607767
       - 0.1055613423236563494 * color.a
@@ -69,7 +69,7 @@ static func oklab_to_rgb(color: OKLABColor):
     ),
     3
   )
-  var s = pow(
+  var s: float = pow(
     (
       color.l * 1.0000000546724109177
       - 0.089484182094965759684 * color.a
