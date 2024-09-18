@@ -288,7 +288,7 @@ func set_icon_color(icon_name: String, theme_type: String, color: Color) -> Imag
   if variant_base:
     icon_dir = "%s/%s" % [icon_dir_base, variant_base]
   if !DirAccess.dir_exists_absolute(icon_dir):
-    DirAccess.make_dir_absolute(icon_dir)
+    DirAccess.make_dir_recursive_absolute(icon_dir)
   
   var image: Image = Image.new()
   var icon_path: StringName = "%s/%s.png" % [icon_dir, icon_name]
