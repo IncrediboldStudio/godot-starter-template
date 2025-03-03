@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2ix1hajlrdqq"]
 
-[ext_resource type="Script" path="res://src/ui/components/menu/menu.gd" id="1_qqegu"]
-[ext_resource type="Script" path="res://src/ui/components/any_key_button/any_key_button.gd" id="2_ayu3u"]
+[ext_resource type="Script" uid="uid://dlpwglmynmr2a" path="res://src/ui/components/menu/menu.gd" id="1_qqegu"]
+[ext_resource type="Script" uid="uid://bvdl0qpbk7lh" path="res://src/ui/components/any_key_button/any_key_button.gd" id="2_ayu3u"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
