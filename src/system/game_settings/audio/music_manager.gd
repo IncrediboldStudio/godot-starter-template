@@ -4,7 +4,7 @@ enum MusicName {
   EXAMPLE,
 }
 
-var music_files: Dictionary = {
+var music_files: Dictionary[MusicName, Resource] = {
 #MusicName.EXAMPLE: preload ("res://src/audio/example.mp3"),
 }
 

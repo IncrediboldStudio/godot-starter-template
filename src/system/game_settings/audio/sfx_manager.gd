@@ -13,7 +13,7 @@ enum SfxVariation {
 
 const MAX_SFX: int = 30
 
-var audio_files: Dictionary = {
+var audio_files: Dictionary[SfxName, Resource] = {
 #SfxName.EXAMPLE: preload ("res://src/audio/example.mp3"),
 }
 

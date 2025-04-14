@@ -9,7 +9,7 @@ enum ThreadStatus {
   LOADED,
 }
 
-var scenes: Dictionary = {}
+var scenes: Dictionary[StringName, StringName] = {}
 var loading_screen: Resource = preload("res://src/scenes/loading_screen/scn_loading_screen.tscn")
 
 var last_loaded_scene: Node = null
@@ -94,9 +94,9 @@ func _initialize_loading_screen() -> LoadingScreen:
 ## - next_scene: The path to the scene to be loaded.
 ##
 ## Returns: The path to the scene file.
-func _find_scene_path(next_scene: String) -> String:
+func _find_scene_path(next_scene: StringName) -> String:
   # Find path to the scene file
-  var path: String = scenes[next_scene] if scenes.has(next_scene) else next_scene
+  var path: StringName = scenes[next_scene] if scenes.has(next_scene) else next_scene
 
   # Validate path
   if not ResourceLoader.exists(path):

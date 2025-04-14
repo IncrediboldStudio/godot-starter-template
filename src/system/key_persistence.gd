@@ -4,7 +4,7 @@ extends Node
 
 const KEYMAPS_PATH: StringName = "user://keymaps.dat"
 
-var keymaps: Dictionary
+var keymaps: Dictionary[StringName, InputEvent] = {}
 
 
 func _ready() -> void:
