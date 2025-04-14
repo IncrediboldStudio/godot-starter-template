@@ -1,7 +1,7 @@
 [gd_resource type="Theme" script_class="ThemeEditor" load_steps=373 format=3 uid="uid://cycqbbeb6j808"]
 
 [ext_resource type="FontFile" uid="uid://b6cdhyk7r3ab3" path="res://src/ui/fonts/ft_londrina_solid_regular.ttf" id="1_85xrx"]
-[ext_resource type="Script" path="res://addons/theme_editor/theme_editor.gd" id="1_t3bj7"]
+[ext_resource type="Script" uid="uid://cs73k3pplprbt" path="res://addons/theme_editor/theme_editor.gd" id="1_t3bj7"]
 [ext_resource type="Texture2D" uid="uid://xippv2tqnu3p" path="res://src/ui/theme/icons/CheckBox/CheckBox_checked.png" id="1_tdu2u"]
 [ext_resource type="Texture2D" uid="uid://cai82a05d2nal" path="res://src/ui/theme/icons/CheckBox/CheckBox_checked_disabled.png" id="2_otiv2"]
 [ext_resource type="FontFile" uid="uid://dk44vtoqhhwrs" path="res://src/ui/fonts/ft_londrina_solid_black.ttf" id="2_yy4pc"]

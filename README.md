@@ -1,7 +1,7 @@
 # Godot Starter Template
 
 **General-purpose Godot Engine 4.x template for game development.**  
-*[4.3-stable](https://godotengine.org/download/archive/4.3-stable/)*
+*[4.4.1-stable](https://godotengine.org/download/archive/4.4.1-stable/)*
 
 Here is a [style guide](docs/style_guide.md) that goes more in detail on the project structure.
 

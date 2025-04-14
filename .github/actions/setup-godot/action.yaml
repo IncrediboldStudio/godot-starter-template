@@ -2,9 +2,9 @@ name: Setup Godot
 description: Downloads Godot binaries and export templates
 inputs:
   godot-version:
-    description: Godot version to use (default '4.3')
+    description: Godot version to use (default '4.4.1')
     required: true
-    default: '4.3'
+    default: '4.4.1'
   godot-release: 
     description: Godot release to use (default 'stable')
     required: true

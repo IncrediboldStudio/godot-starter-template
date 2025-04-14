@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bt04ee18kvvtq"]
 
-[ext_resource type="Script" path="res://src/scenes/loading_screen/loading_screen.gd" id="1_l6wrb"]
+[ext_resource type="Script" uid="uid://dbxm4xif8sea0" path="res://src/scenes/loading_screen/loading_screen.gd" id="1_l6wrb"]
 
 [sub_resource type="Gradient" id="Gradient_q4v31"]
 
@@ -70,9 +70,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uwjus"]
 _data = {
-"RESET": SubResource("Animation_h6cfv"),
-"fade_in": SubResource("Animation_gkpb3"),
-"fade_out": SubResource("Animation_lhrmh")
+&"RESET": SubResource("Animation_h6cfv"),
+&"fade_in": SubResource("Animation_gkpb3"),
+&"fade_out": SubResource("Animation_lhrmh")
 }
 
 [sub_resource type="Animation" id="Animation_6mags"]
@@ -94,7 +94,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d2i53"]
 _data = {
-"throbber": SubResource("Animation_6mags")
+&"throbber": SubResource("Animation_6mags")
 }
 
 [node name="LoadingScreen" type="CanvasLayer"]
@@ -151,13 +151,13 @@ pivot_offset = Vector2(20, 20)
 texture = SubResource("GradientTexture1D_eqs57")
 
 [node name="FadeAnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "fade_in"
 libraries = {
-"": SubResource("AnimationLibrary_uwjus")
+&"": SubResource("AnimationLibrary_uwjus")
 }
+autoplay = "fade_in"
 
 [node name="ThrobberAnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "throbber"
 libraries = {
-"": SubResource("AnimationLibrary_d2i53")
+&"": SubResource("AnimationLibrary_d2i53")
 }
+autoplay = "throbber"
