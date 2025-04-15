@@ -82,6 +82,10 @@ jobs:
     name: Deploy on Github Pages
     needs: export
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      packages: read
+      id-token: write
     # runs-on: self-hosted
     steps: 
       - name: Download export artifacts
